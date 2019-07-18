@@ -116,14 +116,49 @@ const data = [
 // div that stores article info
 const createArticles = dataObj => {
   // article information
-  const articlediv = document.createElement(`div`);
-  const articletitle = document.createElement(`h2`);
-  const articleDate = document.createElement(`p`);
-  const paragraph1 = document.createElement(`p`);
-  const paragraph2 = document.createElement(`p`);
-  const paragraph3 = document.creatElement(`p`);
+  const articleDiv = document.createElement(`div`);
 
-  const expandButton = document.createElement();
+  const articleTitle = document.createElement(`h2`);
+  articleTitle.textcontent = dataObj.title;
+  articleDiv.appendChild(articleTitle);
+
+  const articleDate = document.createElement(`p`);
+  articleDate.classList.add(`date`);
+  articleDate.textContent = dataObj.date;
+  articleDiv.appendChild(articleDate);
+
+  const paragraph1 = document.createElement(`p`);
+  paragraph1.textContent = dataObj.firstParagraph;
+  articleDiv.appendChild(paragraph1);
+
+  const paragraph2 = document.createElement(`p`);
+  paragraph2.textContent = dataObj.secondParagraph;
+  articleDiv.appendChild(paragraph2);
+
+  const paragraph3 = document.creatElement(`p`);
+  paragraph3.textContent = dataObj.thirdParagraph;
+  articleDiv.appendChild(paragraph3);
+
+  const expandButton = document.createElement(`span`);
+  expandButton.classList.add(`expandButton`);
+  expandButton.textContent = `expand`;
+  articleDiv.appendChild(expandButton);
 };
 
-expandButton.textContent = articleTitle.textContent = dataObj.title;
+//add an event listener to be able to expan each article
+
+expandButton.addEventListener("click", () => {
+  articleDiv.classList.toggle(`article-open`);
+
+  // return articleDiv;
+});
+
+//step 3
+
+//step 4 map
+
+data.map(articleObj => {
+  const article = createArticles(articleObj);
+  const articleContainer = document.querySelector(`.articles`);
+  articleContainer.appendChild(article);
+});
