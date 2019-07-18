@@ -141,7 +141,7 @@ const createArticles = dataObj => {
 
   const expandButton = document.createElement(`span`);
   expandButton.classList.add(`expandButton`);
-  expandButton.textContent = `expand`;
+  expandButton.textContent = `click to expand`;
   articleDiv.appendChild(expandButton);
 };
 
@@ -150,7 +150,7 @@ const createArticles = dataObj => {
 expandButton.addEventListener("click", () => {
   articleDiv.classList.toggle(`article-open`);
 
-  // return articleDiv;
+  return articleDiv;
 });
 
 //step 3
